@@ -1,0 +1,61 @@
+XXX	private BufferedReader openFile(String prompt) {
+		BufferedReader rd=null;
+		
+		while (rd == null) {
+			try {
+				String filename = readLine(prompt);
+				rd = new BufferedReader(new FileReader(filename));
+			} catch (IOException ex) {
+				println("Bad file. Try again.");
+			}
+		}
+		return rd;
+	}
+
+
+XXX	private ArrayList<String> readList() {
+		ArrayList<String> arr=new ArrayList<String>();
+		while(true) {
+			String str = readLine("? ");
+			if(str.equals("")) break;	
+			arr.add(str);
+		}
+		return arr;
+	}
+
+XXX	private GObject temp;
+	private GLabel temp2;
+
+XXX	public void mousePressed(MouseEvent e) {
+		temp=getElementAt(e.getX(),e.getY());
+		temp2=new GLabel("This is a "+temp, 200, 280);
+		add(temp2);
+	}
+	
+	public void mouseReleased(MouseEvent e) {
+		remove(temp2);
+	}
+
+XXX 	double wTest=test.getWidth()/2;
+		double hTest=test.getHeight()/2;
+	
+XXX private void doubleBeepers(){
+		if(beepersPresent()){
+			pickBeeper();
+			doubleBeepers();
+			putBeeper();
+			putBeeper();
+		}
+	}
+	
+XXX	private void putAltBeepers(){
+		while(frontIsClear()) {
+			putBeeper();
+			move();
+			if(frontIsClear()){
+				move();
+			}
+		}
+	}
+	
+	
